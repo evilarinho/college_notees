@@ -1,10 +1,15 @@
-# college_notees
+# College Notees
 
-A new Flutter project.
+Aplicativo desenvolvido com Flutter e Firebase.
 
-## Getting Started
+## Sobre o app
 
-This project is a starting point for a Flutter application.
+ O College Notees é uma ferramenta destinada aos estudantes que visam organizar suas atividades escolares, buscando melhorar sua produtividade.
+
+<div>
+<img src="https://user-images.githubusercontent.com/96136397/215874877-d4ac17c5-799e-41d5-8c98-e32a3bdf7c28.png" />
+<img src="https://user-images.githubusercontent.com/96136397/215874877-d4ac17c5-799e-41d5-8c98-e32a3bdf7c28.png" />
+</div>
 
 A few resources to get you started if this is your first Flutter project:
 
