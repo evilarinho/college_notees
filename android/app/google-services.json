@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "910760409912",
+    "project_id": "college-notees",
+    "storage_bucket": "college-notees.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910760409912:android:fc2148013b95d4f0035fcd",
+        "android_client_info": {
+          "package_name": "com.example.college_notees"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910760409912-rtuvdkqhulbefkohtcoq710e5uatmkgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx30fFgpe1A8fZXZpRnAxUI_4odG6Sznc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910760409912-rtuvdkqhulbefkohtcoq710e5uatmkgg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "910760409912-spk31du74sj7shi1au2np4lhj4cmfp6o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.collegeNotee"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>910760409912-ufek6hdfjk5i3h35n8139hna41gnq247.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.910760409912-ufek6hdfjk5i3h35n8139hna41gnq247</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDzdjCRkKnLcOJ3KdP2y51Ytp_4fS_9Xuw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>910760409912</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.collegeNotees</string>
+	<key>PROJECT_ID</key>
+	<string>college-notees</string>
+	<key>STORAGE_BUCKET</key>
+	<string>college-notees.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:910760409912:ios:bf1eed0ce0101743035fcd</string>
+</dict>
+</plist>
