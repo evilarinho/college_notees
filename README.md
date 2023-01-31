@@ -6,9 +6,11 @@ Aplicativo desenvolvido com Flutter e Firebase.
 
  O College Notees é uma ferramenta destinada aos estudantes que visam organizar suas atividades escolares, buscando melhorar sua produtividade.
 
+> Telas de autenticação
+
 <div>
 <img src="https://user-images.githubusercontent.com/96136397/215874877-d4ac17c5-799e-41d5-8c98-e32a3bdf7c28.png" />
-<img src="https://user-images.githubusercontent.com/96136397/215874877-d4ac17c5-799e-41d5-8c98-e32a3bdf7c28.png" />
+<img src="https://user-images.githubusercontent.com/96136397/215878498-af6e8810-76ae-440e-add2-c04893733e4b.png" />
 </div>
 
 A few resources to get you started if this is your first Flutter project:
