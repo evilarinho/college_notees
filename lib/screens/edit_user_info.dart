@@ -61,14 +61,16 @@ class _EditInfoUserState extends State<EditInfoUser> {
                     child: Column(
                       children: [
                         EditorTextFormField(
-                            controller: _controller,
-                            fieldIcon: const Icon(Icons.title_rounded),
-                            maxLength: 50,
-                            maxLines: 1,
-                            readOnly: false,
-                            validator: widget.validator,
-                            labelText: widget.label,
-                            hintText: widget.hint),
+                          controller: _controller,
+                          fieldIcon: const Icon(Icons.title_rounded),
+                          maxLength: 50,
+                          maxLines: 1,
+                          readOnly: false,
+                          validator: widget.validator,
+                          labelText: widget.label,
+                          hintText: widget.hint,
+                          validateField: true,
+                        ),
                         Utils.addVerticalSpace(10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,

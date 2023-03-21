@@ -13,13 +13,13 @@ class AppTheme {
     return ThemeData(
       fontFamily: "Inter",
       scaffoldBackgroundColor: AppTheme.colors.light,
-      colorScheme: ThemeData()
-          .colorScheme
-          .copyWith(primary: colors.blue, error: colors.red),
-      errorColor: colors.red,
       inputDecorationTheme: InputDecorationTheme(
         prefixIconColor: colors.greyText,
       ),
+      colorScheme: ThemeData()
+          .colorScheme
+          .copyWith(primary: colors.blue, error: colors.red)
+          .copyWith(error: colors.red),
     );
   }
 }

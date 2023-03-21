@@ -1,4 +1,4 @@
-import 'package:college_notees/screens/home_page.dart';
+import 'package:college_notees/content_check.dart';
 import 'package:college_notees/screens/login.dart';
 import 'package:college_notees/services/auth_service.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class _AuthCheckState extends State<AuthCheck> {
     } else if (auth.usuario == null) {
       return const LoginPage();
     } else {
-      return const HomePage();
+      return const ContentCheck();
     }
   }
 

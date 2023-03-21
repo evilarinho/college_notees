@@ -102,27 +102,6 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  login() async {
-    try {
-      await context
-          .read<AuthService>()
-          .login(_loginEmailController.text, _loginPasswordController.text);
-    } on AuthException catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(e.message)));
-    }
-  }
-
-  register() async {
-    try {
-      await context.read<AuthService>().register(_registerEmailController.text,
-          _registerPasswordController.text, _registerNameController.text);
-    } on AuthException catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(e.message)));
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     AuthService auth = Provider.of<AuthService>(context);
@@ -227,13 +206,20 @@ class _LoginPageState extends State<LoginPage> {
                         } else {
                           if (_loginFormKey.currentState!.validate()) {
                             debugPrint('login');
-                            login(); // Chama o método de login
+                            auth.login(
+                                _loginEmailController.text,
+                                _loginPasswordController
+                                    .text); // Chama o método de login
                           }
                         }
                       } else {
                         if (_registerFormKey.currentState!.validate()) {
                           debugPrint('cadastro');
-                          register(); // Chama o método de cadastro
+                          auth.register(
+                              _registerEmailController.text,
+                              _registerPasswordController.text,
+                              _registerNameController
+                                  .text); // Chama o método de cadastro
                         }
                       }
                     },

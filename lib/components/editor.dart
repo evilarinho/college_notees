@@ -104,6 +104,7 @@ class EditorTextFormField extends StatelessWidget {
   final String hintText;
   final Icon fieldIcon;
   final bool readOnly;
+  final bool validateField;
   final FormFieldValidator validator;
   final VoidCallback? action;
 
@@ -117,18 +118,22 @@ class EditorTextFormField extends StatelessWidget {
       required this.maxLines,
       required this.fieldIcon,
       required this.readOnly,
-      this.action});
+      this.action,
+      required this.validateField});
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-        decoration: selectedDecoration(),
-        onTap: action,
-        controller: controller,
-        maxLength: maxLength,
-        maxLines: maxLines,
-        readOnly: readOnly,
-        validator: validator);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: TextFormField(
+          decoration: selectedDecoration(),
+          onTap: action,
+          controller: controller,
+          maxLength: maxLength,
+          maxLines: maxLines,
+          readOnly: readOnly,
+          validator: validateField ? validator : null),
+    );
   }
 
   InputDecoration selectedDecoration() {

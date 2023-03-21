@@ -53,7 +53,10 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
       disciplinas.add(Container(
         padding: const EdgeInsets.all(2.0),
         child: ChoiceChip(
-          label: Text(item.get('nome')),
+          label: Text(
+            item.get('nome'),
+            style: AppTheme.typo.medium(15, AppTheme.colors.dark, 0, 1),
+          ),
           selected: selectedDisciplinas.contains(item.get('nome')),
           backgroundColor: AppTheme.colors.lightBlue,
           onSelected: (selected) {
@@ -113,6 +116,7 @@ class Options extends StatelessWidget {
   final Function()? onTap;
   final bool editImage;
   final bool isDeleteAccountOption;
+  final bool isLogoutOption;
 
   const Options(
       {super.key,
@@ -120,24 +124,8 @@ class Options extends StatelessWidget {
       required this.titleContent,
       required this.onTap,
       required this.editImage,
-      required this.isDeleteAccountOption});
-
-  TextStyle leadingStyle(double size) {
-    return TextStyle(
-        fontFamily: "Inter",
-        fontSize: size,
-        fontWeight: FontWeight.bold,
-        color: const Color(0xff232320));
-  }
-
-  TextStyle titleStyle(double size) {
-    return TextStyle(
-        color: const Color(0xff232320),
-        fontFamily: "Inter",
-        fontSize: size,
-        fontWeight: FontWeight.w400,
-        height: 1.5);
-  }
+      required this.isDeleteAccountOption,
+      required this.isLogoutOption});
 
   @override
   Widget build(BuildContext context) {
@@ -145,41 +133,48 @@ class Options extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 15),
         color: AppTheme.colors.light,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
+          borderRadius: BorderRadius.circular(10.0),
           side: BorderSide(
-            color: AppTheme.colors.blue,
+            color: isDeleteAccountOption
+                ? AppTheme.colors.red
+                : AppTheme.colors.blue,
             width: 2.0,
           ),
         ),
         elevation: 5,
-        child: ListTile(
-          onTap: onTap,
-          title: Text(
-            titleContent,
-            style:
-                Responsive.isMobile(context) ? titleStyle(16) : titleStyle(17),
-            textAlign: TextAlign.left,
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: ListTile(
+            onTap: onTap,
+            title: Text(
+              titleContent,
+              style: AppTheme.typo.regular(16, AppTheme.colors.dark, 1.5, 1),
+              textAlign: TextAlign.left,
+            ),
+            leading: Text(
+              title,
+              style: AppTheme.typo.medium(17, AppTheme.colors.dark, 1.5, 1),
+            ),
+            trailing: editImage
+                ? Icon(
+                    Icons.camera_alt_rounded,
+                    color: AppTheme.colors.dark,
+                  )
+                : isDeleteAccountOption
+                    ? Icon(
+                        Icons.delete_forever_rounded,
+                        color: AppTheme.colors.red,
+                      )
+                    : isLogoutOption
+                        ? Icon(
+                            Icons.logout_rounded,
+                            color: AppTheme.colors.dark,
+                          )
+                        : Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            color: AppTheme.colors.dark,
+                          ),
           ),
-          leading: Text(
-            title,
-            style: Responsive.isMobile(context)
-                ? leadingStyle(16)
-                : leadingStyle(17),
-          ),
-          trailing: editImage
-              ? Icon(
-                  Icons.camera_alt_rounded,
-                  color: AppTheme.colors.dark,
-                )
-              : isDeleteAccountOption
-                  ? Icon(
-                      Icons.delete_forever_rounded,
-                      color: AppTheme.colors.dark,
-                    )
-                  : Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: AppTheme.colors.dark,
-                    ),
         ));
   }
 }
@@ -200,19 +195,6 @@ class CardInfo extends StatefulWidget {
 }
 
 class _CardInfoState extends State<CardInfo> {
-  final titleStyle = const TextStyle(
-      fontFamily: "Inter",
-      fontSize: 17,
-      fontWeight: FontWeight.bold,
-      color: Color(0xff232320));
-
-  final contentStyle = const TextStyle(
-      color: Color(0xff232320),
-      fontFamily: "Inter",
-      fontSize: 17,
-      fontWeight: FontWeight.w400,
-      height: 1.5);
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -231,9 +213,16 @@ class _CardInfoState extends State<CardInfo> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(widget.title, style: titleStyle),
+            Text(
+              widget.title,
+              style: AppTheme.typo.bold(17, AppTheme.colors.dark, 1.5, 1),
+            ),
             ListTile(
-                title: Text(widget.content, style: contentStyle),
+                title: Text(
+                  widget.content,
+                  style:
+                      AppTheme.typo.regular(17, AppTheme.colors.dark, 1.5, 1),
+                ),
                 trailing: Icon(
                   Icons.edit,
                   color: AppTheme.colors.dark,

@@ -3,11 +3,6 @@ import 'package:college_notees/widgets/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 
-class AuthException implements Exception {
-  String message;
-  AuthException(this.message);
-}
-
 class AuthService extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   User? usuario;
@@ -59,11 +54,7 @@ class AuthService extends ChangeNotifier {
       //Adiciona o novo usuário a coleção USUARIOS
       addUser(email, name, userCredential.additionalUserInfo!.isNewUser);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        throw AuthException('A senha é muito fraca!');
-      } else if (e.code == 'email-already-in-use') {
-        throw AuthException('Este email já esta cadastrado');
-      }
+      handleAuthError(e);
     }
   }
 
@@ -74,17 +65,37 @@ class AuthService extends ChangeNotifier {
           email: email, password: password);
       _getUser();
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        throw AuthException('Nenhum usuário encontrado para este e-mail.');
-      } else if (e.code == 'wrong-password') {
-        throw AuthException('Senha incorreta. Tente novamente!');
-      }
+      handleAuthError(e);
     }
   }
 
   logout() async {
     await _auth.signOut();
     _getUser();
+  }
+
+  handleAuthError(FirebaseException error) {
+    switch (error.code) {
+      case 'invalid-email':
+        Utils.schowSnackBar('Email inválido');
+
+        break;
+      case 'user-not-found':
+        Utils.schowSnackBar('Usuário não encontrado');
+        break;
+      case 'wrong-password':
+        Utils.schowSnackBar('Senha incorreta');
+        break;
+      case 'email-already-in-use':
+        Utils.schowSnackBar('Este email já está sendo usado por outro usuário');
+        break;
+      case 'weak-password':
+        Utils.schowSnackBar('A senha precisa ter no mínimo 6 caracteres');
+        break;
+      default:
+        Utils.schowSnackBar('Erro desconhecido');
+        break;
+    }
   }
 
   addUser(String email, String name, bool isNewUser) async {

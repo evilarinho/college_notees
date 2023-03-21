@@ -11,9 +11,12 @@ Future<void> popupBox(BuildContext context, String title, Function() onPressed,
       barrierDismissible: true,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(title),
-          content: SizedBox(
-            height: 200,
+          title: Text(
+            title,
+            textAlign: TextAlign.start,
+            style: AppTheme.typo.bold(16, AppTheme.colors.dark, 1.5, 1),
+          ),
+          content: SingleChildScrollView(
             child: Form(
               key: formKey,
               child: Column(
@@ -27,12 +30,16 @@ Future<void> popupBox(BuildContext context, String title, Function() onPressed,
                     backgroundColor: AppTheme.colors.lightBlue,
                     label: Text(
                       label,
-                      textAlign: TextAlign.left,
+                      textAlign: TextAlign.start,
                     ),
                   ),
                   Utils.addVerticalSpace(15),
-                  const Text(
-                      'Para continuar, primeiro confirme sua identidade'),
+                  Text(
+                    'Para continuar, primeiro confirme sua identidade',
+                    textAlign: TextAlign.start,
+                    style:
+                        AppTheme.typo.regular(16, AppTheme.colors.dark, 1.5, 1),
+                  ),
                   Utils.addVerticalSpace(16),
                   LoginTextFormField(
                       controller: controller,
@@ -53,11 +60,17 @@ Future<void> popupBox(BuildContext context, String title, Function() onPressed,
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('CANCELAR'),
+              child: Text(
+                'CANCELAR',
+                style: AppTheme.typo.medium(15, AppTheme.colors.blue, 1.5, 1),
+              ),
             ),
             TextButton(
               onPressed: onPressed,
-              child: const Text('PROSSEGUIR'),
+              child: Text(
+                'PROSSEGUIR',
+                style: AppTheme.typo.medium(15, AppTheme.colors.blue, 1.5, 1),
+              ),
             )
           ],
         );

@@ -9,4 +9,7 @@ class FirebaseCollection {
 
   static final CollectionReference disciplinasBasicasRef =
       FirebaseFirestore.instance.collection('DISCIPLINAS_BASICAS');
+
+  static final CollectionReference atividadeRef =
+      FirebaseFirestore.instance.collection('ATIVIDADES');
 }
